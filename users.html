@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f7fafc;
+            padding: 40px 20px;
+        }
+        .container { max-width: 750px; margin: 0 auto; }
+        h1 { color: #2d3748; text-align: center; margin-bottom: 30px; }
+        .user-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .user-name { font-size: 1.25em; font-weight: bold; color: #2d3748; margin-bottom: 5px; }
+        .user-email { color: #3182ce; margin-bottom: 10px; }
+        .detail-row { color: #4a5568; margin: 4px 0; font-size: 0.95em; }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.82em;
+            margin-right: 6px;
+            margin-top: 5px;
+        }
+        .badge-yes { background-color: #c6f6d5; color: #22543d; }
+        .badge-no { background-color: #fed7d7; color: #742a2a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profiles</h1>
+        <div id="userList"></div>
+    </div>
+
+    <script>
+        fetch('userProfiles.json')
+            .then(response => {
+                if (!response.ok)
+                    throw new Error('Fetch error: ' + response.status)
+                else
+                    return response.json();
+            })
+            .then(json => {
+                const users = json.users;
+                let htmlContent = '';
+
+                for (let i = 0; i < users.length; i++) {
+                    const u = users[i];
+                    const subBadge = u.preferences.subscription
+                        ? '<span class="badge badge-yes">Subscribed</span>'
+                        : '<span class="badge badge-no">Not Subscribed</span>';
+                    const notifBadge = u.preferences.notifications
+                        ? '<span class="badge badge-yes">Notifications On</span>'
+                        : '<span class="badge badge-no">Notifications Off</span>';
+
+                    htmlContent += `
+                        <div class="user-card">
+                            <div class="user-name">${u.firstName} ${u.lastName}</div>
+                            <div class="user-email">${u.email}</div>
+                            <div class="detail-row">Date of Birth: ${u.dateOfBirth}</div>
+                            <div class="detail-row">Address: ${u.address.street}, ${u.address.city}, ${u.address.state} ${u.address.zipCode}</div>
+                            <div class="detail-row">Theme: ${u.preferences.theme} | Language: ${u.preferences.language}</div>
+                            <div>${subBadge} ${notifBadge}</div>
+                        </div>
+                    `;
+                }
+
+                document.getElementById('userList').innerHTML = htmlContent;
+            })
+            .catch(err => console.error('Fetch error: ' + err.message));
+    </script>
+</body>
+</html>

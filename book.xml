@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogue>
+    <book id="1">
+        <title>JavaScript and JQuery: Interactive Front-End Development</title>
+        <author>Jon Duckett</author>
+        <price>45.99</price>
+    </book>
+    <book id="2">
+        <title>HTML and CSS: Design and Build Websites</title>
+        <author>Jon Duckett</author>
+        <price>39.99</price>
+    </book>
+    <book id="3">
+        <title>Learning Web Design: A Beginner's Guide</title>
+        <author>Jennifer Robbins</author>
+        <price>52.50</price>
+    </book>
+    <book id="4">
+        <title>Eloquent JavaScript: A Modern Introduction to Programming</title>
+        <author>Marijn Haverbeke</author>
+        <price>44.95</price>
+    </book>
+</catalogue>

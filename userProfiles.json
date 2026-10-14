@@ -1,0 +1,76 @@
+{
+    "users": [
+        {
+            "firstName": "Emma",
+            "lastName": "Watson",
+            "email": "emma.watson@example.com",
+            "dateOfBirth": "1995-03-15",
+            "preferences": {
+                "theme": "dark",
+                "language": "English",
+                "notifications": true,
+                "subscription": true
+            },
+            "address": {
+                "street": "123 Queen Street",
+                "city": "Auckland",
+                "state": "Auckland",
+                "zipCode": "1010"
+            }
+        },
+        {
+            "firstName": "Liam",
+            "lastName": "Smith",
+            "email": "liam.smith@example.com",
+            "dateOfBirth": "1997-08-22",
+            "preferences": {
+                "theme": "light",
+                "language": "English",
+                "notifications": false,
+                "subscription": false
+            },
+            "address": {
+                "street": "45 Elm Street",
+                "city": "Wellington",
+                "state": "Wellington",
+                "zipCode": "6011"
+            }
+        },
+        {
+            "firstName": "Olivia",
+            "lastName": "Johnson",
+            "email": "olivia.johnson@example.com",
+            "dateOfBirth": "1996-11-08",
+            "preferences": {
+                "theme": "blue",
+                "language": "French",
+                "notifications": true,
+                "subscription": true
+            },
+            "address": {
+                "street": "8 Rue de Rivoli",
+                "city": "Paris",
+                "state": "Île-de-France",
+                "zipCode": "75001"
+            }
+        },
+        {
+            "firstName": "Noah",
+            "lastName": "Brown",
+            "email": "noah.brown@example.com",
+            "dateOfBirth": "1994-05-30",
+            "preferences": {
+                "theme": "green",
+                "language": "Spanish",
+                "notifications": false,
+                "subscription": true
+            },
+            "address": {
+                "street": "20 Gran Via",
+                "city": "Madrid",
+                "state": "Madrid",
+                "zipCode": "28013"
+            }
+        }
+    ]
+}
